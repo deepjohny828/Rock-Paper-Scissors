@@ -1,3 +1,9 @@
+const infa = document.querySelector("#infa");
+const papper = document.querySelector("#papper");
+const knife = document.querySelector("#knife");
+const chHuman = document.querySelector(".choiceHuman");
+const chRobot = document.querySelector(".choiceRobot");
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -20,7 +26,6 @@ function printChoice(number){
     }
 }
 function getHumanChoice(){
-    let number = parseInt(prompt("Ваш выбор "));
     if(number > 3 || number < 0){
         alert("Такого пока нет, поэтому заменили ваше значение на бумагу, чтобы вы могли ей подтереться. С любовью от разработчиков :)");
         return 2;
@@ -49,9 +54,7 @@ function main(){
         let comp = getComputeChoice();
         let hum = getHumanChoice();
         let status = getStatusOfRound(comp,hum);
-        console.log(`Комп выбрал -> ${printChoice(comp)}\t\tЧел выбрал -> ${printChoice(hum)}\n
-Комп имеет -> ${computerScore} очков\t\tЧел имеет -> ${humanScore} очков\n
-        Итог раунда -> ${status}\n`)
+        
     }
 }
 console.log(main());
