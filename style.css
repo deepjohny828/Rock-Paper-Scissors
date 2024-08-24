@@ -1,0 +1,26 @@
+body{
+    background-color: bisque;
+    margin:0;
+    text-align: center;
+}
+.container{
+    margin:50px auto;
+    width:500px;
+}
+#infa{
+    margin-bottom: 40px;
+    border-bottom: 2px solid black;
+}
+.choiceBtn{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.mm{
+    display: flex;
+    margin-top:30px;
+    justify-content: space-around;
+    align-items: center;
+    border:1px solid black;
+    
+}
