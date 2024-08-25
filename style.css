@@ -5,7 +5,7 @@ body{
 }
 .container{
     margin:50px auto;
-    width:500px;
+    width:600px;
 }
 #infa{
     margin-bottom: 40px;
@@ -22,5 +22,30 @@ body{
     justify-content: space-around;
     align-items: center;
     border:1px solid black;
+    padding-bottom: 20px;
     
+}
+span{
+    display: flex;
+    margin-top:30px;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+span>p{
+    margin:0;
+
+}
+.mainBtn{
+    
+    padding:20px 40px;
+    width: 139px;
+    background-color: rgb(221, 193, 155);
+    border: 0px;
+    border-radius: 14px;
+}
+.round{
+    display: flex;
+    gap:30px;
+    justify-content: center;
 }
