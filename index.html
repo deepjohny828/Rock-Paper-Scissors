@@ -5,9 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <h2 id="infa">Камень ножницы бумага</h2>
+        <div class="choiceBtn">
+            <button id="rock" class="mainBtn">Камень</button>
+            <button id="knife" class="mainBtn">Ножницы</button>
+            <button id="papper" class="mainBtn">Бумага</button>
+        </div>
+            <div class="mm">
+                <div class="human">
+                    <h3 >Выбор человека</h3>
+                    <p id="choiceHuman">...</p>
+                    <span>
+                        <p>Очки: </p>
+                        <p class="scoreHum">0</p>
+                    </span>
+                </div>
+                <div class="robot">
+                    <h3>Выбор машины</h3>
+                    <p id="choiceRobot">...</p>
+                    <span>
+                        <p>Очки: </p>
+                        <p class="scoreRob">0</p>
+                    </span>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <p>Copyright</p>
+        <p>OOO Lohotron</p>
+    </footer>
 </body>
 </html>

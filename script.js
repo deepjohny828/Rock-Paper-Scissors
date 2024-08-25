@@ -1,3 +1,14 @@
+const infa = document.querySelector("#infa");
+const papper = document.querySelector("#papper");
+const knife = document.querySelector("#knife");
+const chHuman = document.querySelector("#choiceHuman");
+const chRobot = document.querySelector("#choiceRobot");
+const btn = document.querySelector(".choiceBtn");
+const scoreHum = document.querySelector(".scoreHum");
+const scoreRob = document.querySelector(".scoreRob");
+const numberRound = document.querySelector("#numberRound");
+let countRound = 0;
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -19,39 +30,69 @@ function printChoice(number){
         return "";
     }
 }
-function getHumanChoice(){
-    let number = parseInt(prompt("Ваш выбор "));
-    if(number > 3 || number < 0){
-        alert("Такого пока нет, поэтому заменили ваше значение на бумагу, чтобы вы могли ей подтереться. С любовью от разработчиков :)");
-        return 2;
-    }
-    return number;
+function refreshValue(){
+    chHuman.textContent = "...";
+    chRobot.textContent = "...";
+    scoreHum.textContent = "0";
+    scoreRob.textContent = "0";
+    humanScore = 0;
+    computerScore = 0;
+    countRound = 0;
 }
 function getStatusOfRound(comp,hum){
-    if(comp === hum){
-        return "Ничья";
-    }
-    else if((comp === 0 && hum === 1)||(comp === 1 && hum === 2) || (comp === 2 && hum === 0)){
-        humanScore++;
+   
+    if(humanScore === 5){
+        refreshValue();
         return "Люди победили, восстание машин ещё далеко!";
-
     }
-    else if((comp === 1 && hum === 0)||(comp === 2 && hum === 1) || (comp === 0 && hum === 2)){
-        computerScore++;
+    else if(computerScore === 5){
+        refreshValue();
         return "Скайнет не за горами -_-";
     }
-    else{
-        return "HZ";
+    else if(computerScore === 5 && humanScore === 5){
+        refreshValue();
+        return "Люди живут в мире с машинами";
     }
+    else{   
+        countRound++;
+        if((comp === "Камень" && hum === "Бумага")||(comp === "Бумага" && hum === "Ножницы") || (comp === "Ножницы" && hum === "Камень")){
+            humanScore++;
+            scoreHum.textContent = humanScore;
+            if(humanScore === 5){
+                refreshValue();
+                return "Люди победили, восстание машин ещё далеко!";
+            }
+        }
+        else if((comp === "Бумага" && hum === "Камень")||(comp === "Ножницы" && hum === "Бумага") || (comp === "Камень" && hum === "Ножницы")){
+            computerScore++;
+            scoreRob.textContent = computerScore;
+            if(computerScore === 5){
+                refreshValue();
+                return "Скайнет не за горами -_-";
+            }
+        }
+    }
+    return "Раунд " + countRound;
+    
 }
 function main(){
-    for(let i = 0; i < 5;++i){
-        let comp = getComputeChoice();
-        let hum = getHumanChoice();
-        let status = getStatusOfRound(comp,hum);
-        console.log(`Комп выбрал -> ${printChoice(comp)}\t\tЧел выбрал -> ${printChoice(hum)}\n
-Комп имеет -> ${computerScore} очков\t\tЧел имеет -> ${humanScore} очков\n
-        Итог раунда -> ${status}\n`)
-    }
+   
+    btn.addEventListener('click',function(e){
+        switch (e.target.id){
+            case "rock":
+                chHuman.textContent = "Камень";
+                break;
+            case "papper":
+                chHuman.textContent = "Бумага";
+                break;
+            case "knife":
+                chHuman.textContent = "Ножницы";
+                break;
+        }
+        chRobot.textContent = printChoice(getComputeChoice());
+        infa.textContent = getStatusOfRound(chRobot.textContent,chHuman.textContent);
+        
+    });
+   
 }
-console.log(main());
+main();
