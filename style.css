@@ -1,11 +1,20 @@
-body{
-    background-color: bisque;
+html,body{
+    height:100%;
     margin:0;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    background-color: bisque;
+    
     text-align: center;
+    
 }
 .container{
     margin:50px auto;
     width:600px;
+    flex:1;
+    height: 100%;
 }
 #infa{
     margin-bottom: 40px;
@@ -44,8 +53,20 @@ span>p{
     border: 0px;
     border-radius: 14px;
 }
+.mainBtn:active{
+    background-color: rgb(175, 153, 122);
+}
 .round{
     display: flex;
     gap:30px;
     justify-content: center;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:35px;
+    flex:0;
+    background-color: rgb(175, 153, 121);
+   
 }

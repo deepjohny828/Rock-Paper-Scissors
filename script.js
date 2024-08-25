@@ -33,11 +33,14 @@ function printChoice(number){
 function refreshValue(){
     chHuman.textContent = "...";
     chRobot.textContent = "...";
+    scoreHum.textContent = "0";
+    scoreRob.textContent = "0";
     humanScore = 0;
     computerScore = 0;
     countRound = 0;
 }
 function getStatusOfRound(comp,hum){
+   
     if(humanScore === 5){
         refreshValue();
         return "Люди победили, восстание машин ещё далеко!";
@@ -50,21 +53,26 @@ function getStatusOfRound(comp,hum){
         refreshValue();
         return "Люди живут в мире с машинами";
     }
-    else{
-        infa.textContent = "Round" ;
+    else{   
         countRound++;
         if((comp === "Камень" && hum === "Бумага")||(comp === "Бумага" && hum === "Ножницы") || (comp === "Ножницы" && hum === "Камень")){
             humanScore++;
             scoreHum.textContent = humanScore;
-            return ;
-    
+            if(humanScore === 5){
+                refreshValue();
+                return "Люди победили, восстание машин ещё далеко!";
+            }
         }
         else if((comp === "Бумага" && hum === "Камень")||(comp === "Ножницы" && hum === "Бумага") || (comp === "Камень" && hum === "Ножницы")){
             computerScore++;
             scoreRob.textContent = computerScore;
-            return ;
+            if(computerScore === 5){
+                refreshValue();
+                return "Скайнет не за горами -_-";
+            }
         }
     }
+    return "Раунд " + countRound;
     
 }
 function main(){
@@ -88,5 +96,3 @@ function main(){
    
 }
 main();
-
-
